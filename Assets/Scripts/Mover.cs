@@ -6,9 +6,6 @@ using UnityEngine.AI;
 
 public class Mover : MonoBehaviour
 {
-    [SerializeField] private Transform target;
-
-    Ray lastRay;
     NavMeshAgent agent;
 
     private void Awake()
