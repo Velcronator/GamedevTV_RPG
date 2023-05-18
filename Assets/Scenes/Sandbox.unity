@@ -905,39 +905,12 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.38300002, z: 0}
   m_TimeToStationary: 0.5
---- !u!1 &905595586 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4512150717264360827, guid: afb8fd0a584be1749a52873558393a14,
-    type: 3}
-  m_PrefabInstance: {fileID: 4512150717753672737}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &905595596 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4512150717264360831, guid: afb8fd0a584be1749a52873558393a14,
     type: 3}
   m_PrefabInstance: {fileID: 4512150717753672737}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &905595598
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905595586}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &950533696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2042,7 +2015,7 @@ PrefabInstance:
     - target: {fileID: 2480155766602801916, guid: 440c05abe71b4774ab170e0e68e7ad24,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2480155766602801916, guid: 440c05abe71b4774ab170e0e68e7ad24,
         type: 3}
