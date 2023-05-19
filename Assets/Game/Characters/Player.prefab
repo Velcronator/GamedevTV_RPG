@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4512150717264360831}
   - component: {fileID: 4512150717264360829}
-  - component: {fileID: 905595591}
   - component: {fileID: 905595592}
   - component: {fileID: 905595598}
+  - component: {fileID: 905595591}
+  - component: {fileID: 4155311887808580169}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -78,18 +79,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &905595591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4512150717264360827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8c3504b52402fa45812f976e0ab4dd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!195 &905595592
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -109,7 +98,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0.3
+  m_BaseOffset: -0.3
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!95 &905595598
@@ -133,6 +122,30 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &905595591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4512150717264360827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c3504b52402fa45812f976e0ab4dd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4155311887808580169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4512150717264360827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e1caaa34c8c21641b9e7770efdfbc82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4512150717949078152
 PrefabInstance:
   m_ObjectHideFlags: 0
