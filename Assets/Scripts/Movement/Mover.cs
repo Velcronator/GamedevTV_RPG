@@ -1,3 +1,4 @@
+using RPG.Combat;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -38,5 +39,10 @@ namespace RPG.Movement
             navMeshAgent.isStopped = true;
         }
 
+        public void StartMoveAction(Vector3 destination)
+        {
+            GetComponent<Fighter>().Cancel();
+            MoveTo(destination);
+        }
     }
 }
