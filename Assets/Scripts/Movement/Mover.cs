@@ -1,12 +1,13 @@
-using RPG.Combat;
+using RPG.Core;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace RPG.Movement
 {
-
-    public class Mover : MonoBehaviour
+    public class Mover : MonoBehaviour, IAction
     {
+        //[SerializeField] Transform target;
+
         NavMeshAgent navMeshAgent;
 
         private void Start()
@@ -19,13 +20,10 @@ namespace RPG.Movement
             UpdateAnimator();
         }
 
-        private void UpdateAnimator()
+        public void StartMoveAction(Vector3 destination)
         {
-            Vector3 velocity = navMeshAgent.velocity;
-            Vector3 localVelocity = transform.InverseTransformDirection(velocity);
-            float speed = localVelocity.z;
-            GetComponent<Animator>().SetFloat("forwardSpeed", speed);
-
+            GetComponent<ActionScheduler>().StartAction(this);
+            MoveTo(destination);
         }
 
         public void MoveTo(Vector3 destination)
@@ -34,15 +32,17 @@ namespace RPG.Movement
             navMeshAgent.isStopped = false;
         }
 
-        public void Stop()
+        public void Cancel()
         {
             navMeshAgent.isStopped = true;
         }
 
-        public void StartMoveAction(Vector3 destination)
+        private void UpdateAnimator()
         {
-            GetComponent<Fighter>().Cancel();
-            MoveTo(destination);
+            Vector3 velocity = navMeshAgent.velocity;
+            Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+            float speed = localVelocity.z;
+            GetComponent<Animator>().SetFloat("forwardSpeed", speed);
         }
     }
 }
