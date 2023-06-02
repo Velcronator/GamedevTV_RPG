@@ -16,7 +16,6 @@ namespace RPG.Combat
         public void TakeDamage(float damage)
         {
             healthPoints = Mathf.Max(healthPoints - damage, 0);
-            print("healthPoints: " + healthPoints);
             if(healthPoints == 0)
             { 
                 Die();
