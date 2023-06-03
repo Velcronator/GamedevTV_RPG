@@ -1,12 +1,12 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace RPG.Combat
+namespace RPG.Core
 {
     public class Health : MonoBehaviour
     {
         [SerializeField] float healthPoints = 100f;
-        private bool isDead = false;
+
+        bool isDead = false;
 
         public bool IsDead()
         {
@@ -16,8 +16,8 @@ namespace RPG.Combat
         public void TakeDamage(float damage)
         {
             healthPoints = Mathf.Max(healthPoints - damage, 0);
-            if(healthPoints == 0)
-            { 
+            if (healthPoints == 0)
+            {
                 Die();
             }
         }
@@ -25,8 +25,10 @@ namespace RPG.Combat
         private void Die()
         {
             if (isDead) return;
+
             isDead = true;
             GetComponent<Animator>().SetTrigger("die");
+            GetComponent<ActionScheduler>().CancelCurrentAction();
         }
     }
 }

@@ -64,6 +64,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 905595592, guid: 4ac9305ee36742840ad9ed8603b1806b, type: 3}
+      propertyPath: m_Speed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4512150717264360827, guid: 4ac9305ee36742840ad9ed8603b1806b,
         type: 3}
       propertyPath: m_Name
@@ -135,7 +139,6 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 3642424901490593585, guid: 4ac9305ee36742840ad9ed8603b1806b, type: 3}
     - {fileID: 4155311887808580169, guid: 4ac9305ee36742840ad9ed8603b1806b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4ac9305ee36742840ad9ed8603b1806b, type: 3}
 --- !u!1 &2014272148437042594 stripped
@@ -183,6 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 5
+  suspicionTime: 5
 --- !u!4 &2014272148437042598 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4512150717264360831, guid: 4ac9305ee36742840ad9ed8603b1806b,
