@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using RPG.Combat;
@@ -11,6 +12,9 @@ namespace RPG.Control
     {
         [SerializeField] float chaseDistance = 5f;
         [SerializeField] float suspicionTime = 3f;
+        [SerializeField] PatrolPath patrolPath;
+        [SerializeField] float waypointTolerance = 1f;
+        [SerializeField] float waypointDwellTime = 4f;
 
         Fighter fighter;
         GameObject player;
@@ -19,6 +23,8 @@ namespace RPG.Control
 
         Vector3 guardPosition;
         float timeSinceLastSawPlayer = Mathf.Infinity;
+        float timeSinceLastArrivedAtWaypoint = Mathf.Infinity;
+        int currentWaypointIndex = 0;
 
         private void Start()
         {
@@ -36,7 +42,7 @@ namespace RPG.Control
             if (health.IsDead()) { return; }
             if (InAttackRangeOfPlayer() && fighter.CanAttack(player))
             {   // State where the AI is in range and can attack
-                timeSinceLastSawPlayer = 0f;
+                
                 AttackBehaviour();
             }
             else if (timeSinceLastSawPlayer < suspicionTime)
@@ -44,17 +50,54 @@ namespace RPG.Control
                 SuspicionBehaviour();
             }
             else
-            {   // Back to the guard position
-                GaurdBehaviour();
+            {   // Back to the Guard or Patrol positions
+                PatrolBehaviour();
             }
 
-            timeSinceLastSawPlayer += Time.deltaTime;
+            UpdateTimers();
         }
 
-        private void GaurdBehaviour()
+        private void UpdateTimers()
         {
-            mover.StartMoveAction(guardPosition);
-            //todo think about rotating the player when he gets back
+            timeSinceLastSawPlayer += Time.deltaTime;
+            timeSinceLastArrivedAtWaypoint += Time.deltaTime;
+        }
+
+        private void PatrolBehaviour()
+        {
+            Vector3 nextPosition = guardPosition;
+
+            if (patrolPath != null)
+            {   // Guard position if the enemy doesn't have a Path to follow
+                if (AtWaypoint())
+                {
+                    timeSinceLastArrivedAtWaypoint = 0f;
+                    CycleWaypoint();
+                }
+                nextPosition = GetCurrentWaypoint();
+            }
+            if(timeSinceLastArrivedAtWaypoint > waypointDwellTime)
+            {
+                mover.StartMoveAction(nextPosition);
+                //todo think about rotating the player when he gets back
+            }
+
+        }
+
+        private void CycleWaypoint()
+        {
+            currentWaypointIndex = patrolPath.GetNextIndex(currentWaypointIndex);
+        }
+
+        private Vector3 GetCurrentWaypoint()
+        {
+            return patrolPath.GetWaypoint(currentWaypointIndex);
+        }
+
+        private bool AtWaypoint()
+        {
+            float distanceToWaypoint = Vector3.Distance(transform.position, GetCurrentWaypoint());
+            return distanceToWaypoint < waypointTolerance;
         }
 
         private void SuspicionBehaviour()
@@ -66,6 +109,7 @@ namespace RPG.Control
 
         private void AttackBehaviour()
         {
+            timeSinceLastSawPlayer = 0f;
             fighter.Attack(player);
         }
 
