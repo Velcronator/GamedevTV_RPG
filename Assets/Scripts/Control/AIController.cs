@@ -15,6 +15,8 @@ namespace RPG.Control
         [SerializeField] PatrolPath patrolPath;
         [SerializeField] float waypointTolerance = 1f;
         [SerializeField] float waypointDwellTime = 4f;
+        [Range(0f, 1f)]
+        [SerializeField] float patrolSpeedFraction = 0.2f;
 
         Fighter fighter;
         GameObject player;
@@ -42,11 +44,12 @@ namespace RPG.Control
             if (health.IsDead()) { return; }
             if (InAttackRangeOfPlayer() && fighter.CanAttack(player))
             {   // State where the AI is in range and can attack
-                
                 AttackBehaviour();
+                // todo set chase speed here
             }
             else if (timeSinceLastSawPlayer < suspicionTime)
             {   //Suspicion State
+                // todo set patrol speed here
                 SuspicionBehaviour();
             }
             else
@@ -78,7 +81,7 @@ namespace RPG.Control
             }
             if(timeSinceLastArrivedAtWaypoint > waypointDwellTime)
             {
-                mover.StartMoveAction(nextPosition);
+                mover.StartMoveAction(nextPosition, patrolSpeedFraction);
                 //todo think about rotating the player when he gets back
             }
 

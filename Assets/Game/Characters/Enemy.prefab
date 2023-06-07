@@ -64,9 +64,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 905595591, guid: 4ac9305ee36742840ad9ed8603b1806b, type: 3}
+      propertyPath: maxSpeed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 905595592, guid: 4ac9305ee36742840ad9ed8603b1806b, type: 3}
       propertyPath: m_Speed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3642424901490593585, guid: 4ac9305ee36742840ad9ed8603b1806b,
+        type: 3}
+      propertyPath: weaponDamage
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4512150717264360827, guid: 4ac9305ee36742840ad9ed8603b1806b,
         type: 3}
@@ -81,17 +90,17 @@ PrefabInstance:
     - target: {fileID: 4512150717264360831, guid: 4ac9305ee36742840ad9ed8603b1806b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.9007149
+      value: -6.2
       objectReference: {fileID: 0}
     - target: {fileID: 4512150717264360831, guid: 4ac9305ee36742840ad9ed8603b1806b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000009536743
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4512150717264360831, guid: 4ac9305ee36742840ad9ed8603b1806b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.1791134
+      value: 3.75
       objectReference: {fileID: 0}
     - target: {fileID: 4512150717264360831, guid: 4ac9305ee36742840ad9ed8603b1806b,
         type: 3}
@@ -101,17 +110,17 @@ PrefabInstance:
     - target: {fileID: 4512150717264360831, guid: 4ac9305ee36742840ad9ed8603b1806b,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4512150717264360831, guid: 4ac9305ee36742840ad9ed8603b1806b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4512150717264360831, guid: 4ac9305ee36742840ad9ed8603b1806b,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4512150717264360831, guid: 4ac9305ee36742840ad9ed8603b1806b,
         type: 3}
@@ -136,7 +145,7 @@ PrefabInstance:
     - target: {fileID: 6424903754561326920, guid: 4ac9305ee36742840ad9ed8603b1806b,
         type: 3}
       propertyPath: healthPoints
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4155311887808580169, guid: 4ac9305ee36742840ad9ed8603b1806b, type: 3}
@@ -187,6 +196,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseDistance: 5
   suspicionTime: 5
+  patrolPath: {fileID: 0}
+  waypointTolerance: 1
+  waypointDwellTime: 4
+  patrolSpeedFraction: 0.2
 --- !u!4 &2014272148437042598 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4512150717264360831, guid: 4ac9305ee36742840ad9ed8603b1806b,
