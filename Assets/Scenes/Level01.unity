@@ -3813,11 +3813,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 946396892}
     m_Modifications:
-    - target: {fileID: 1722132993499152360, guid: 9b7fa990b8e07f943aa53f6a7d4f2803,
-        type: 3}
-      propertyPath: weaponDamage
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 2014272148437042594, guid: 9b7fa990b8e07f943aa53f6a7d4f2803,
         type: 3}
       propertyPath: m_Name
@@ -3888,11 +3883,6 @@ PrefabInstance:
       propertyPath: patrolPath
       value: 
       objectReference: {fileID: 1383422620}
-    - target: {fileID: 8954166645785296785, guid: 9b7fa990b8e07f943aa53f6a7d4f2803,
-        type: 3}
-      propertyPath: healthPoints
-      value: 40
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b7fa990b8e07f943aa53f6a7d4f2803, type: 3}
 --- !u!1001 &1669770791
