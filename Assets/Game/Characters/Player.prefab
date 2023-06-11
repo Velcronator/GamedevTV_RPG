@@ -97,27 +97,27 @@ PrefabInstance:
     - target: {fileID: 4512150717264360831, guid: 4ac9305ee36742840ad9ed8603b1806b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -37.2
+      value: -38.78
       objectReference: {fileID: 0}
     - target: {fileID: 4512150717264360831, guid: 4ac9305ee36742840ad9ed8603b1806b,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4512150717264360831, guid: 4ac9305ee36742840ad9ed8603b1806b,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4512150717264360831, guid: 4ac9305ee36742840ad9ed8603b1806b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4512150717264360831, guid: 4ac9305ee36742840ad9ed8603b1806b,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4512150717264360831, guid: 4ac9305ee36742840ad9ed8603b1806b,
         type: 3}
@@ -127,7 +127,7 @@ PrefabInstance:
     - target: {fileID: 4512150717264360831, guid: 4ac9305ee36742840ad9ed8603b1806b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 4512150717264360831, guid: 4ac9305ee36742840ad9ed8603b1806b,
         type: 3}
@@ -147,3 +147,23 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8776396797804567844}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5139283686513223775 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4512150717264360827, guid: 4ac9305ee36742840ad9ed8603b1806b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8776396797804567844}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &545704439
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5139283686513223775}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 1.9
+  m_Direction: 1
+  m_Center: {x: -0, y: 1, z: 0}
