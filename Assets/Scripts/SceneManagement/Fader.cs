@@ -8,18 +8,15 @@ namespace RPG.SceneManagement
     {
         CanvasGroup canvasGroup = null;
 
-        private void Start()
+        private void Awake()
         {
             canvasGroup = GetComponent<CanvasGroup>();
         }
 
-        //public IEnumerator FadeOutIn()
-        //{
-        //    yield return FadeOut(3f);
-        //    print("out");
-        //    yield return FadeIn(3f);
-        //    print("in");
-        //}
+        public void FadeOutImmediate()
+        {
+            canvasGroup.alpha = 1;
+        }
 
         public IEnumerator FadeOut(float time)
         {

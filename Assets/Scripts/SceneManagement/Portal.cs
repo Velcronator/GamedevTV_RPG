@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using RPG.Saving;
 
 namespace RPG.SceneManagement
 {
@@ -42,10 +43,22 @@ namespace RPG.SceneManagement
             // Fade out
             yield return fader.FadeOut(fadeOutTime);
 
+            // Save Current Level
+            SavingWrapper savingWrapper = FindObjectOfType<SavingWrapper>();
+            savingWrapper.Save();
+
             // New Scene
             yield return SceneManager.LoadSceneAsync(sceneToLoad);
+
+            // Load Current Level
+            savingWrapper.Load();
+
+            // Move player to new position
             Portal otherPortal = GetOtherPortal();
             UpdatePlayer(otherPortal);
+
+            // Another save to eliminate portal swapping
+            savingWrapper.Save();
 
             // wait a bit them fade in
             yield return new WaitForSeconds(fadeWaitTime);
@@ -56,8 +69,10 @@ namespace RPG.SceneManagement
         private void UpdatePlayer(Portal otherPortal)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
+            player.GetComponent<NavMeshAgent>().enabled = false;
             player.GetComponent<NavMeshAgent>().Warp(otherPortal.spawnPointTransform.position);
             player.transform.rotation = otherPortal.spawnPointTransform.rotation;
+            player.GetComponent<NavMeshAgent>().enabled = true;
         }
 
         private Portal GetOtherPortal()
