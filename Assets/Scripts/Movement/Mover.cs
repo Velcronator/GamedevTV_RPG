@@ -1,14 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
+using RPG.Saving;
 using RPG.Core;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace RPG.Movement
 {
-    public class Mover : MonoBehaviour, IAction
+    public class Mover : MonoBehaviour, IAction, ISaveable
     {
-        //[SerializeField] Transform target;
+        [SerializeField] Transform target;
         [SerializeField] float maxSpeed = 6f;
 
 
@@ -53,6 +52,19 @@ namespace RPG.Movement
             Vector3 localVelocity = transform.InverseTransformDirection(velocity);
             float speed = localVelocity.z;
             GetComponent<Animator>().SetFloat("forwardSpeed", speed);
+        }
+
+        public object CaptureState()
+        {
+            return new SerializableVector3(transform.position);
+        }
+
+        public void RestoreState(object state)
+        {
+            SerializableVector3 position = (SerializableVector3)state;
+            GetComponent<NavMeshAgent>().enabled = false; // so there is no conflict with the ToVector
+            transform.position = position.ToVector();
+            GetComponent<NavMeshAgent>().enabled = true; // Object in place. Navmesh back on
         }
     }
 }
