@@ -2,6 +2,7 @@ using RPG.Saving;
 using RPG.Core;
 using UnityEngine;
 using UnityEngine.AI;
+using System;
 
 namespace RPG.Movement
 {
@@ -54,16 +55,27 @@ namespace RPG.Movement
             GetComponent<Animator>().SetFloat("forwardSpeed", speed);
         }
 
+        [System.Serializable]
+        struct MoverStateData
+        {
+            public SerializableVector3 position;
+            public SerializableVector3 rotation;
+        }
+
         public object CaptureState()
         {
-            return new SerializableVector3(transform.position);
+            MoverStateData data = new MoverStateData();
+            data.position = new SerializableVector3(transform.position);
+            data.rotation = new SerializableVector3(transform.eulerAngles);
+            return data;
         }
 
         public void RestoreState(object state)
         {
-            SerializableVector3 position = (SerializableVector3)state;
+            MoverStateData data = (MoverStateData)state;
             GetComponent<NavMeshAgent>().enabled = false; // so there is no conflict with the ToVector
-            transform.position = position.ToVector();
+            transform.position = data.position.ToVector();
+            transform.eulerAngles = data.rotation.ToVector();
             GetComponent<NavMeshAgent>().enabled = true; // Object in place. Navmesh back on
         }
     }
