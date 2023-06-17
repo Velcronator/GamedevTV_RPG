@@ -124,6 +124,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: c6488d8ed0382854a807984963d5b11e, type: 2}
+--- !u!4 &45319511 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4945127471922070126, guid: 866d1c9a5c0a41f469883a16fea1c478,
+    type: 3}
+  m_PrefabInstance: {fileID: 1729666542}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &87964330
 GameObject:
   m_ObjectHideFlags: 0
@@ -3970,6 +3976,7 @@ Transform:
   m_Children:
   - {fileID: 547746602}
   - {fileID: 466275432}
+  - {fileID: 45319511}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4717,7 +4724,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1360582887}
-  m_LocalRotation: {x: 0.045245096, y: 0.94148475, z: -0.14059976, w: 0.30297044}
+  m_LocalRotation: {x: 0.04524509, y: 0.94148475, z: -0.14059974, w: 0.30297047}
   m_LocalPosition: {x: -10.400001, y: 3.7000027, z: 9.599998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5668,6 +5675,85 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1669770791}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1729666542
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1157285843}
+    m_Modifications:
+    - target: {fileID: 4487303668810064110, guid: 866d1c9a5c0a41f469883a16fea1c478,
+        type: 3}
+      propertyPath: m_Name
+      value: Fireball Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945127471922070126, guid: 866d1c9a5c0a41f469883a16fea1c478,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945127471922070126, guid: 866d1c9a5c0a41f469883a16fea1c478,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -29.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945127471922070126, guid: 866d1c9a5c0a41f469883a16fea1c478,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945127471922070126, guid: 866d1c9a5c0a41f469883a16fea1c478,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945127471922070126, guid: 866d1c9a5c0a41f469883a16fea1c478,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945127471922070126, guid: 866d1c9a5c0a41f469883a16fea1c478,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945127471922070126, guid: 866d1c9a5c0a41f469883a16fea1c478,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945127471922070126, guid: 866d1c9a5c0a41f469883a16fea1c478,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945127471922070126, guid: 866d1c9a5c0a41f469883a16fea1c478,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945127471922070126, guid: 866d1c9a5c0a41f469883a16fea1c478,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945127471922070126, guid: 866d1c9a5c0a41f469883a16fea1c478,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8347840268588765510, guid: 866d1c9a5c0a41f469883a16fea1c478,
+        type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 28087a538fff8974baa80ad541ed926e,
+        type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 866d1c9a5c0a41f469883a16fea1c478, type: 3}
 --- !u!1001 &1733404440
 PrefabInstance:
   m_ObjectHideFlags: 0

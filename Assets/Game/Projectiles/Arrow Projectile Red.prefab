@@ -80,6 +80,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2512860416289738531, guid: 872898adbb50a4748a36c54a6f726c11,
         type: 3}
+      propertyPath: hitEffect
+      value: 
+      objectReference: {fileID: 2302457091093092515, guid: 69d1b1037536b504884c93bb73d662db,
+        type: 3}
+    - target: {fileID: 2512860416289738531, guid: 872898adbb50a4748a36c54a6f726c11,
+        type: 3}
       propertyPath: isGuidedMissile
       value: 1
       objectReference: {fileID: 0}
