@@ -60,8 +60,19 @@ namespace RPG.Combat
         void Hit()
         {
             if (target == null) { return; }
-            target.TakeDamage(currentWeapon.GetDamage());
+
+            if (currentWeapon.HasProjectile())
+            {
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+            }
+            else
+            {
+                target.TakeDamage(currentWeapon.GetDamage());
+            }
         }
+
+        // Animation Event from Bow. So we don't have to unpack it and just pass it on to hit
+        void Shoot() { Hit(); }
 
         private bool GetIsInRange()
         {
