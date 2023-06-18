@@ -2,19 +2,28 @@ using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
 using System;
+using RPG.Saving;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction
+    public class Fighter : MonoBehaviour, IAction, ISaveable
     {
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Transform rightHandTransform = null;
         [SerializeField] Transform leftHandTransform = null;
         [SerializeField] Weapon defaultWeapon = null;
 
-        Weapon currentWeapon = null;
         Health target;
         float timeSinceLastAttack = Mathf.Infinity;
+        Weapon currentWeapon = null;
+
+        private void Awake()
+        {
+            if (currentWeapon == null)
+            {
+                EquipWeapon(defaultWeapon);
+            }
+        }
 
         private void Update()
         {
@@ -34,9 +43,11 @@ namespace RPG.Combat
             }
         }
 
-        private void Start()
+        public void EquipWeapon(Weapon weapon)
         {
-            EquipWeapon(defaultWeapon);
+            currentWeapon = weapon;
+            Animator animator = GetComponent<Animator>();
+            weapon.Spawn(rightHandTransform, leftHandTransform, animator);
         }
 
         private void AttackBehaviour()
@@ -71,8 +82,10 @@ namespace RPG.Combat
             }
         }
 
-        // Animation Event from Bow. So we don't have to unpack it and just pass it on to hit
-        void Shoot() { Hit(); }
+        void Shoot()
+        {
+            Hit();
+        }
 
         private bool GetIsInRange()
         {
@@ -105,11 +118,16 @@ namespace RPG.Combat
             GetComponent<Animator>().SetTrigger("stopAttack");
         }
 
-        public void EquipWeapon(Weapon weapon)
+        public object CaptureState()
         {
-            currentWeapon = weapon;
-            Animator animator = GetComponent<Animator>();
-            weapon.Spawn(rightHandTransform, leftHandTransform, animator);
+            return currentWeapon.name;
+        }
+
+        public void RestoreState(object state)
+        {
+            string weaponName = (string)state;
+            Weapon weapon = Resources.Load<Weapon>(weaponName);
+            EquipWeapon(weapon);
         }
     }
 }
