@@ -27,6 +27,11 @@ namespace RPG.Attibutes
             if (healthPoints == 0) { Die(); }
         }
 
+        public float GetPercentage()
+        {
+            return 100 * (healthPoints / GetComponent<BaseStats>().GetHealth());
+        }
+
         private void Die()
         {
             if (isDead) return;
