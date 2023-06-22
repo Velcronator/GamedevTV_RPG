@@ -27,13 +27,20 @@ MonoBehaviour:
     - stat: 0
       levels:
       - 40
+<<<<<<< HEAD
   - characterClass: 2
     stats:
     - stat: 0
       levels:
       - 20
+=======
+>>>>>>> 20f72852793312799270451ec882e536cced4003
   - characterClass: 3
     stats:
     - stat: 0
       levels:
+<<<<<<< HEAD
       - 30
+=======
+      - 30
+>>>>>>> 20f72852793312799270451ec882e536cced4003
