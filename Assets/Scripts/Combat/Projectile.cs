@@ -1,5 +1,5 @@
-using RPG.Attributes;
 using UnityEngine;
+using RPG.Attributes;
 
 namespace RPG.Combat
 {
@@ -31,7 +31,7 @@ namespace RPG.Combat
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
 
-        public void SetTarget(Health target,GameObject instigator ,float damage)
+        public void SetTarget(Health target, GameObject instigator, float damage)
         {
             this.target = target;
             this.damage = damage;
@@ -69,7 +69,9 @@ namespace RPG.Combat
             }
 
             Destroy(gameObject, lifeAfterImpact);
+
         }
 
     }
+
 }
