@@ -1,5 +1,5 @@
-using RPG.Saving;
 using System.Collections;
+using RPG.Saving;
 using UnityEngine;
 
 namespace RPG.SceneManagement
@@ -7,25 +7,32 @@ namespace RPG.SceneManagement
     public class SavingWrapper : MonoBehaviour
     {
         const string defaultSaveFile = "save";
-        [SerializeField] float fadeInTimeAtBeginningOfLoad = 0.2f;
 
-        IEnumerator Start()
+        [SerializeField] float fadeInTime = 0.2f;
+
+        private void Awake()
         {
-            Fader fader = FindObjectOfType<Fader>();
-            fader.FadeOutImmediate();
-            yield return GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile);
-            yield return fader.FadeIn(fadeInTimeAtBeginningOfLoad);
+            StartCoroutine(LoadLastScene());
         }
 
-        void Update()
+        private IEnumerator LoadLastScene()
         {
-            if (Input.GetKeyUp(KeyCode.L))
-            {
-                Load();
-            }
-            if (Input.GetKeyUp(KeyCode.S))
+            Fader fader = FindObjectOfType<Fader>();
+
+            fader.FadeOutImmediate();
+            yield return GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile);
+            yield return fader.FadeIn(fadeInTime);
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.S))
             {
                 Save();
+            }
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                Load();
             }
             if (Input.GetKeyDown(KeyCode.Delete))
             {
@@ -33,14 +40,14 @@ namespace RPG.SceneManagement
             }
         }
 
+        public void Load()
+        {
+            GetComponent<SavingSystem>().Load(defaultSaveFile);
+        }
+
         public void Save()
         {
             GetComponent<SavingSystem>().Save(defaultSaveFile);
-        }
-
-        public void Load()
-        {   // call to the saving system
-            GetComponent<SavingSystem>().Load(defaultSaveFile);
         }
 
         public void Delete()

@@ -1,4 +1,4 @@
-﻿using RPG.Attibutes;
+﻿using RPG.Attributes;
 using System;
 using UnityEngine;
 using UnityEngine.UI;

@@ -1,4 +1,4 @@
-using RPG.Attibutes;
+using RPG.Attributes;
 using RPG.Combat;
 using RPG.Movement;
 using UnityEngine;

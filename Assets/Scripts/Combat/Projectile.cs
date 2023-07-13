@@ -1,4 +1,4 @@
-using RPG.Attibutes;
+using RPG.Attributes;
 using UnityEngine;
 
 namespace RPG.Combat
