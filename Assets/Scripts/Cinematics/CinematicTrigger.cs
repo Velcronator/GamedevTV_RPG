@@ -1,22 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
+using RPG.Control;
+using RPG.Saving;
 using UnityEngine;
 using UnityEngine.Playables;
 
-namespace RPG.Cinematics
 
+namespace RPG.Cinematics
 {
-    public class CinematicTrigger : MonoBehaviour
+    public class CinematicTrigger : MonoBehaviour, ISaveable
     {
-        bool alreadyTriggered = false;
+        bool cinematicsTriggered = false;
 
         private void OnTriggerEnter(Collider other)
         {
-            if (!alreadyTriggered && other.gameObject.tag == "Player")
+            if (other.CompareTag("Player") && !cinematicsTriggered)
             {
-                alreadyTriggered = true;
                 GetComponent<PlayableDirector>().Play();
+                cinematicsTriggered |= true;
             }
+        }
+
+        public object CaptureState()
+        {
+            return cinematicsTriggered;
+        }
+
+        public void RestoreState(object state)
+        {
+            cinematicsTriggered = (bool)state;
         }
     }
 }
