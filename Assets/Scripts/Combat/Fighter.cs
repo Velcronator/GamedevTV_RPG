@@ -1,8 +1,9 @@
 using UnityEngine;
 using RPG.Movement;
-using RPG.Attributes;
-using RPG.Saving;
 using RPG.Core;
+using RPG.Saving;
+using RPG.Stats;
+using RPG.Attributes;
 
 namespace RPG.Combat
 {
@@ -17,7 +18,7 @@ namespace RPG.Combat
         float timeSinceLastAttack = Mathf.Infinity;
         Weapon currentWeapon = null;
 
-        private void Awake()
+        private void Start()
         {
             if (currentWeapon == null)
             {
@@ -77,13 +78,15 @@ namespace RPG.Combat
         {
             if (target == null) { return; }
 
+            float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
+
             if (currentWeapon.HasProjectile())
             {
-                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject);
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject, damage);
             }
             else
             {
-                target.TakeDamage(gameObject, currentWeapon.GetDamage());
+                target.TakeDamage(gameObject, damage);
             }
         }
 
@@ -131,7 +134,7 @@ namespace RPG.Combat
         public void RestoreState(object state)
         {
             string weaponName = (string)state;
-            Weapon weapon = Resources.Load<Weapon>(weaponName);
+            Weapon weapon = UnityEngine.Resources.Load<Weapon>(weaponName);
             EquipWeapon(weapon);
         }
     }
