@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG.Combat
@@ -8,21 +7,20 @@ namespace RPG.Combat
     public class WeaponPickup : MonoBehaviour
     {
         [SerializeField] Weapon weapon = null;
-        [SerializeField] float respawnTime = 5;
-
+        [SerializeField] float respawnTime = 5f;
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.tag == "Player")
+            if (other.CompareTag("Player"))
             {
                 other.GetComponent<Fighter>().EquipWeapon(weapon);
                 StartCoroutine(HideForSeconds(respawnTime));
             }
         }
 
-        private IEnumerator HideForSeconds(float seconds)
+        private IEnumerator HideForSeconds(float respawnTime)
         {
             ShowPickup(false);
-            yield return new WaitForSeconds(seconds);
+            yield return new WaitForSeconds(respawnTime);
             ShowPickup(true);
         }
 
