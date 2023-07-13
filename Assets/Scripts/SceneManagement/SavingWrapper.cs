@@ -1,9 +1,6 @@
 using RPG.Saving;
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditorInternal.ReorderableList;
 
 namespace RPG.SceneManagement
 {
@@ -30,6 +27,10 @@ namespace RPG.SceneManagement
             {
                 Save();
             }
+            if (Input.GetKeyDown(KeyCode.Delete))
+            {
+                Delete();
+            }
         }
 
         public void Save()
@@ -40,6 +41,11 @@ namespace RPG.SceneManagement
         public void Load()
         {   // call to the saving system
             GetComponent<SavingSystem>().Load(defaultSaveFile);
+        }
+
+        public void Delete()
+        {
+            GetComponent<SavingSystem>().Delete(defaultSaveFile);
         }
     }
 }
